@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from tritones.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('tritones.urls')),
-    path('tritones/', include('tritones.urls'))
+    path('home/', view_home, name='view_home'),
+    path('about-us/', view_about_us, name='view_about_us'),
+    path('auditions/', view_auditions, name='view_auditions'),
+    path('photos/', view_photos, name='view_photos'),
+    path('bookings/', view_bookings, name='view_bookings'),
+    path('contact-us/', view_contact_us, name='view_contact_us'),
 ]
