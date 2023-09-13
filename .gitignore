@@ -1,2 +1,4 @@
 __pycache__/
 venv/
+tritones/config.py
+.cache
