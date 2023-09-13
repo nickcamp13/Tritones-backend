@@ -1,7 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import TritoneSpotifyTrack
 from .config import sp
+from .serializers import tritoneSpotifyTrackSerializer
+
+def get_track_data(request):
+    data = TritoneSpotifyTrack.objects.all()
+    if request.method == 'GET':
+        serializer = tritoneSpotifyTrackSerializer(data, many=True)
+        return JsonResponse(serializer.data, safe=False)
 
 # Create your views here.
 def view_home(request):
